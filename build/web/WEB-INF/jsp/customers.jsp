@@ -33,11 +33,44 @@
                         <strong>Success !</strong> Data Added Successfully.
                     </div>
                  </c:when>
+                     
                  <c:when test="${queryResult=='0'}">
                      <p></p>
                      <div class="alert alert-danger alert-dismissible">
                         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <strong>Error!</strong> Data Added Fail.
+                    </div>
+                 </c:when>
+                     
+                     <c:when test="${queryResult=='3'}">
+                     <p></p>
+                      <div class="alert alert-success alert-dismissible">
+                        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success !</strong> Data Update Successfully.
+                    </div>
+                 </c:when>
+                     
+                 <c:when test="${queryResult=='2'}">
+                     <p></p>
+                     <div class="alert alert-danger alert-dismissible">
+                        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error!</strong> Data Update Fail.
+                    </div>
+                 </c:when>
+                     
+                     <c:when test="${queryResult=='5'}">
+                     <p></p>
+                      <div class="alert alert-success alert-dismissible">
+                        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Success !</strong> Data Delete Successfully.
+                    </div>
+                 </c:when>
+                     
+                 <c:when test="${queryResult=='4'}">
+                     <p></p>
+                     <div class="alert alert-danger alert-dismissible">
+                        <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Error!</strong> Data Delete Fail.
                     </div>
                  </c:when>
                  <c:otherwise>
@@ -59,7 +92,7 @@
                        <td>${customer.email}</td>
                        <td>${customer.address}</td>
                        <td><center><a class="btn btn-sm btn-default" target="_blank" data-toggle="modal" data-target="#editCustomerPopUp" data-id="${customer.customerid}" title="Edit" data-original-title="Edit"><span title="Edit" class="fa fa-edit"></span></a>&nbsp;
-                           <a class="btn btn-sm btn-danger" href="customerDelete?id=${customer.customerid}" target="_blank" data-toggle="tooltip" title="" data-original-title="Delete"><span class="fa fa-times"></span></a></center> </td>
+                           <a class="btn btn-sm btn-danger" target="_blank" data-toggle="modal" data-target="#deleteCustomerPopUp" data-id="${customer.customerid}" title="Delete" data-original-title="Delete"><span title="Delete" class="fa fa-times"></span></a></center> </td>
                        </tr>  
                        </c:forEach>  
                   </table> 
@@ -146,9 +179,9 @@
                         <!-- Customer ID -->
                         <div class="form-group" id="editCustomerid">
 	                  <label class="control-label" for="editCustomerid"><i></i> Customer ID</label>
-                          <input type="text"  class="form-control" name="customerid" disabled>
+                          <input type="text"  class="form-control" name="editCustomerid" disabled>
 	                </div>
-                      
+                        <input type="hidden" id="hiddenID" name="customerid"/>
                         <!-- Name -->
 	                <div class="form-group" id="editName">
 	                  <label class="control-label" for="editName"><i></i> Name</label>
@@ -157,8 +190,8 @@
                          
                          <!-- Email -->
 	                <div class="form-group" id="editEmail">
-	                  <label class="control-label" for="email"><i></i> Email</label>
-	                  <input type="text" class="form-control" name="editEmail" placeholder="Enter Email Address">
+	                  <label class="control-label" for="editEmail"><i></i> Email</label>
+	                  <input type="text" class="form-control" name="email" placeholder="Enter Email Address">
 	                </div>
                          
                          <!-- Phone -->
@@ -182,6 +215,32 @@
                     </form>
                       
                
+                  </div>
+                </div>
+            </div>
+          
+          <!-- Delete Customer Data -->
+          <div class="modal fade" id="deleteCustomerPopUp" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <center><h4 class="modal-title"><span>Are you want to delete?</span></h4></center>
+                    </div>
+                      
+                          <div class="modal-body" id="editModalBody">
+                       
+                              
+                                  <form action="deleteCustomer" method="post" id="deleteCustomer" name="deleteCustomer">
+                                      <input type="hidden" id="hiddenCustomerID" name="customerid"/>
+                                     <center> <button id="deleteCustomerBtn" name="deleteCustomerBtn" class="btn btn-danger">Delete</button>
+                                  </form>
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                              </center>
+                        </div>
+                      <div class="modal-footer"></div>
+                          
                   </div>
                 </div>
             </div>

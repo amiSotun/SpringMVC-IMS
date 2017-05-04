@@ -84,5 +84,22 @@ public class CustomerDaoImp implements CustomerDao{
 
     }
     
+    @Override
+    public int changeCustomeInfo(CustomerInfo customerInfo){
+        String sql = "update customerinfo set name=?, address=?, email=?, phone=? where customerid=?";
+        int i= jdbcTemplate.update(sql,customerInfo.getName(),customerInfo.getAddress(),customerInfo.getEmail(),customerInfo.getPhone(),customerInfo.getCustomerid());
+        //String sql = "update customerinfo set name=? where customerid=?";
+        //int i= jdbcTemplate.update(sql,customerInfo.getName(),"CUS-01");
+        return (i+2);
+    }
+    
+    @Override
+     public int deleteCustomerInfo(String customerId){
+         String sql = "delete from customerinfo where customerid=?";
+         int i= jdbcTemplate.update(sql, customerId);
+         return (i+4);
+     }
+    
+    
 }
 

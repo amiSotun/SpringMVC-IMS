@@ -19,4 +19,7 @@ public interface CustomerDao {
     public List<CustomerInfo> getCustometsDetails();
     //public List<CustomerInfo> retriveCustomerInfo(String customerId);
     public CustomerInfo retriveCustomerInfo(String customerId);
+    public int changeCustomeInfo(CustomerInfo customerInfo);
+    public int deleteCustomerInfo(String customerId);
+    
 }

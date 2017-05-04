@@ -36,7 +36,6 @@ public class customerController {
     public String str="";
     private final CustomerDao customerDao;
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private Object JsonRequestBehavior;
     
     @Autowired 
     public customerController(CustomerDao customerDao){
@@ -90,5 +89,24 @@ public class customerController {
         CustomerInfo customerInfo= customerDao.retriveCustomerInfo(customerId);
         String json = gson.toJson(customerInfo);
         return json;
+    }
+    
+    
+    @RequestMapping(value = "/editCustomer", method = RequestMethod.POST)
+    public ModelAndView editCustomer(@ModelAttribute CustomerInfo customerInfo,HttpServletRequest request) {
+        //String customerId=request.getParameter("customerid");
+        str= String.valueOf(customerDao.changeCustomeInfo(customerInfo));
+        ModelAndView model= new ModelAndView("redirect:/customers");
+        model.addObject("queryRst",str);
+        return model;
+    }
+    
+    @RequestMapping(value = "/deleteCustomer", method = RequestMethod.POST)
+    public ModelAndView deleteCustomer(HttpServletRequest request){ 
+        String customerId=request.getParameter("customerid");       
+        str= String.valueOf(customerDao.deleteCustomerInfo(customerId));
+        ModelAndView model= new ModelAndView("redirect:/customers");
+        model.addObject("queryRst",str);
+        return model;
     }
 }

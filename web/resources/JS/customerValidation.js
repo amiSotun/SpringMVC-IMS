@@ -6,7 +6,7 @@ $(document).ready(function(){
         name:"Name char-length max:100 and min:3, digit & symbol not allowed.",
         email:"E.g. abc@example.com",
         phone:"Only mobile number & digit allowed.",
-        address: "Min & Max length: 3 & 150 letters, Symbols [,.:#-/\'&()] allowed"
+        address: "Min & Max length: 4 & 150 letters, Symbols [,.:#-/\'&()] allowed"
     };
     var patternArray = {
         name: /^[a-zA-Z. '-]{3,100}$/,
@@ -15,16 +15,16 @@ $(document).ready(function(){
         address: /^[a-zA-Z0-9]+[a-zA-Z0-9.#&:(), \/'-/\r/\n]{3,150}$/
     };
 
-    $("#name input").on("keyup",function(event){
+    $("#name input").on("blur",function(event){
         //event.preventDefault();
         var parentId = $(this).parent().attr("id"), element = event.target.nodeName.toLowerCase();
         validationForm(parentId,errMsgArray[parentId],patternArray[parentId]," "+element);
     });
-    $("#email input").on("keyup",function(event){
+    $("#email input").on("blur",function(event){
         var parentId = $(this).parent().attr("id"), element = event.target.nodeName.toLowerCase();
         validationForm(parentId,errMsgArray[parentId],patternArray[parentId]," "+element);
     });
-    $("#phone input").on("keyup",function(event){
+    $("#phone input").on("blur",function(event){
         var parentId = $(this).parent().attr("id"), element = event.target.nodeName.toLowerCase();
         validationForm(parentId,errMsgArray[parentId],patternArray[parentId]," "+element);
     });
