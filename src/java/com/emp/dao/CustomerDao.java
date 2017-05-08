@@ -21,5 +21,5 @@ public interface CustomerDao {
     public CustomerInfo retriveCustomerInfo(String customerId);
     public int changeCustomeInfo(CustomerInfo customerInfo);
     public int deleteCustomerInfo(String customerId);
-    
+     public List<CustomerInfo> searchCustomerInfo(String searchVal);
 }

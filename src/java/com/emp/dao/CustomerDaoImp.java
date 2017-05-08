@@ -60,7 +60,7 @@ public class CustomerDaoImp implements CustomerDao{
     
     @Override
     public List<CustomerInfo> getCustometsDetails(){
-        String sql = "SELECT * FROM customerinfo order by id asc";
+        String sql = "SELECT * FROM customerinfo order by id desc";
         List<CustomerInfo> listOfCustomer=jdbcTemplate.query(sql, new RowMapper<CustomerInfo>() {
             @Override
             public CustomerInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -99,6 +99,29 @@ public class CustomerDaoImp implements CustomerDao{
          int i= jdbcTemplate.update(sql, customerId);
          return (i+4);
      }
+     
+     
+     @Override
+    public List<CustomerInfo> searchCustomerInfo(String searchVal){
+        searchVal="%" +searchVal+ "%";
+        String sql = "SELECT * FROM customerinfo where name like ? or customerid like ? or phone like ? or email like ? or address like ?";
+        //String sql = "SELECT * FROM customerinfo order by id asc";
+        List<CustomerInfo> listOfCustomer=jdbcTemplate.query(sql,new Object[]{searchVal,searchVal,searchVal,searchVal,searchVal}, new RowMapper<CustomerInfo>() {
+            @Override
+            public CustomerInfo mapRow(ResultSet rs, int rowNum) throws SQLException {
+                CustomerInfo customerInfo=new CustomerInfo();
+                customerInfo.setName(rs.getString("name"));
+                customerInfo.setCustomerid(rs.getString("customerid"));
+                customerInfo.setPhone(rs.getString("phone"));
+                customerInfo.setEmail(rs.getString("email"));
+                customerInfo.setAddress(rs.getString("address"));
+                return customerInfo;
+            }
+        });
+        return listOfCustomer;
+    }
+     
+     
     
     
 }

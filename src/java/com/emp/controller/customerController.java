@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import static jdk.nashorn.internal.objects.NativeString.trim;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -109,4 +110,15 @@ public class customerController {
         model.addObject("queryRst",str);
         return model;
     }
+    
+    @RequestMapping(value = "/searchCustomer", method = RequestMethod.GET)
+    public @ResponseBody String searchCustomer(HttpServletRequest request) {
+        Gson gson = new Gson();
+        String searchVal=request.getParameter("searchVal").trim();
+        //return searchVal;
+            List<CustomerInfo> customerInfo=customerDao.searchCustomerInfo(searchVal); 
+            String json = gson.toJson(customerInfo);
+            return json;
+    }
+    
 }

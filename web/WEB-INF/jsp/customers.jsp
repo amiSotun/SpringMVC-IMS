@@ -17,7 +17,8 @@
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Title</h3>
+              <h3 class="box-title">Customer Information</h3>
+              <span class="searchCen"><input type="text" class="input-sm" id="searchCustomer" name="search" placeholder="Search"></span>
               <div class="box-tools pull-right">
                   <button class="btn btn-box-tool" data-toggle="modal" data-target="#insertCustomerModal" title="Insert New Customer"><i class="fa fa-user-plus"></i></button>
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
@@ -79,7 +80,7 @@
                      
             </div>
               
-            <div class="box-body">
+            <div class="box-body" id="customerData">
                 
                 <table class="table table-bordered table-striped">  
                     <tr><th><center>SL NO</center></th><th><center>Name</center></th><th><center>User ID</center></th><th><center>Phone</center></th><th><center>Email</center></th><th><center>Address</center></th><th><center>Action</center></th></tr>  
@@ -99,7 +100,7 @@
             </div><!-- /.box-body -->
             <div class="box-footer">
                               <!-- Modal -->
-             Footer
+                              <small>Footer</small>
              
              
             </div><!-- /.box-footer-->
