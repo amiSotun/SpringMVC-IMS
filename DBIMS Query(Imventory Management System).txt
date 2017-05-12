@@ -1,0 +1,169 @@
+CREATE TABLE IF NOT EXISTS `userinfo` ( `id` int(11) NOT NULL AUTO_INCREMENT,
+`userid` varchar(32) NOT NULL,
+ `type` varchar(20) NOT NULL,
+ `password` varchar(32) NOT NULL,
+ `created_at` datetime NOT NULL,
+ CONSTRAINT user_pk PRIMARY KEY (`userid`),
+ UNIQUE KEY `id` (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `supplierinfo` ( `id` int(11) NOT NULL AUTO_INCREMENT,
+`supplierId` varchar(32) NOT NULL,
+ `name` varchar(100) NOT NULL,
+ `address` varchar(100) NOT NULL,
+ `email` varchar(100) NULL,
+ `phone` varchar(15) NOT NULL,
+`userid` varchar(32) NOT NULL,
+ `created_at` datetime NOT NULL,
+ CONSTRAINT supplierId_pk PRIMARY KEY (`supplierId`),
+CONSTRAINT `user_supplier_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ UNIQUE KEY `id` (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `categoryinfo` ( `id` int(11) NOT NULL AUTO_INCREMENT,
+`catid` varchar(32) NOT NULL,
+ `catname` varchar(150) NOT NULL,
+ `description` varchar(100) NOT NULL,
+`userid` varchar(32) NOT NULL,
+ `created_at` datetime NOT NULL,
+ CONSTRAINT catId_pk PRIMARY KEY (`catid`),
+CONSTRAINT `user_category_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ UNIQUE KEY `id` (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `brandinfo` ( `id` int(11) NOT NULL AUTO_INCREMENT,
+`brandid` varchar(32) NOT NULL,
+ `brandname` varchar(100) NOT NULL,
+ `description` text NULL,
+`userid` varchar(32) NOT NULL,
+ `created_at` datetime NOT NULL,
+ CONSTRAINT brandid_pk PRIMARY KEY (`brandid`),
+CONSTRAINT `user_brand_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ UNIQUE KEY `id` (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `entryinfo` (`id` int(11) NOT NULL AUTO_INCREMENT,
+ `entryid` varchar(32) NOT NULL,
+ `entrydate` datetime NULL,
+ `invoiceid` varchar(32) NOT NULL,
+ `invoicedate` datetime NULL,
+ `supplierId` varchar(32) NOT NULL,
+ `userid` varchar(32) NOT NULL,
+ CONSTRAINT entryid_pk PRIMARY KEY (`entryid`),
+ UNIQUE KEY `id` (`id`),
+ CONSTRAINT `entry_supplier_fk` FOREIGN KEY (`supplierId`) REFERENCES `supplierinfo` (`supplierId`) ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT `user_entry_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE
+ ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `stockinfo` (`id` int(11) NOT NULL AUTO_INCREMENT,
+ `stockid` varchar(32) NOT NULL,
+ `entryid` varchar(32) NOT NULL,
+ `brandid` varchar(32) NOT NULL,
+ `catid` varchar(32) NOT NULL,
+ `productmodel` varchar(100) NOT NULL,
+ `quantity` int(11) NOT NULL,
+ `reorderlevel` int(11) NOT NULL,
+ `ppi` decimal(18,2) NOT NULL,
+ `spi` decimal(18,2) NOT NULL,
+ `description` text NULL,
+ CONSTRAINT stock_pk PRIMARY KEY (`stockid`),
+ UNIQUE KEY `id` (`id`),
+ CONSTRAINT `entry_stock_fk` FOREIGN KEY (`entryid`) REFERENCES `entryinfo` (`entryid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT `entry_brand_fk` FOREIGN KEY (`brandid`) REFERENCES `brandinfo` (`brandid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT `entry_category_fk` FOREIGN KEY (`catid`) REFERENCES `categoryinfo` (`catid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `customerinfo` ( `id` int(11) NOT NULL AUTO_INCREMENT,
+`customerid` varchar(32) NOT NULL,
+ `name` varchar(100) NOT NULL,
+ `address` varchar(100) NOT NULL,
+ `email` varchar(100) NULL,
+ `phone` varchar(15) NOT NULL,
+`userid` varchar(32) NOT NULL,
+ `created_at` datetime NOT NULL,
+ CONSTRAINT customer_pk PRIMARY KEY (`customerid`),
+CONSTRAINT `user_customer_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ UNIQUE KEY `id` (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `issueinfo` (`id` int(11) NOT NULL AUTO_INCREMENT,
+ `issueid` varchar(32) NOT NULL,
+ `issuedate` datetime NOT NULL,
+ `customerid` varchar(32) NOT NULL,
+ `brandid` varchar(32) NOT NULL,
+ `catid` varchar(32) NOT NULL,
+ `stockid` varchar(32) NOT NULL,
+ `userid` varchar(32) NOT NULL,
+ `quantity` int(11) NOT NULL,
+ `spi` decimal(18,2) NOT NULL,
+ `payment` decimal(18,2) NOT NULL,
+ `mode` varchar(10) NOT NULL,
+ `status` varchar(10) NOT NULL,
+ `description` text NULL,
+ CONSTRAINT issue_pk PRIMARY KEY (`issueid`),
+ UNIQUE KEY `id` (`id`),
+ CONSTRAINT `issue_customer_fk` FOREIGN KEY (`customerid`) REFERENCES `customerinfo` (`customerid`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `user_issue_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT `issue_brand_fk` FOREIGN KEY (`brandid`) REFERENCES `brandinfo` (`brandid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ CONSTRAINT `issue_category_fk` FOREIGN KEY (`catid`) REFERENCES `categoryinfo` (`catid`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `issue_stock_fk` FOREIGN KEY (`stockid`) REFERENCES `stockinfo` (`stockid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `entryreturninfo` (`id` int(11) NOT NULL AUTO_INCREMENT,
+ `entryreturnid` varchar(32) NOT NULL,
+ `entryid` varchar(32) NOT NULL,
+ `stockid` varchar(32) NOT NULL,
+ `quantity` int(11) NOT NULL,
+ `description` text NULL,
+ `returndate` datetime NOT NULL,
+`userid` varchar(32) NOT NULL,
+ CONSTRAINT entryreturn_pk PRIMARY KEY (`entryreturnid`),
+ UNIQUE KEY `id` (`id`),
+CONSTRAINT `user_entryreturn_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `entryreturn_stock_fk` FOREIGN KEY (`stockid`) REFERENCES `stockinfo` (`stockid`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `entryreturn_entry_fk` FOREIGN KEY (`entryid`) REFERENCES `entryinfo` (`entryid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `entrydamageinfo` (`id` int(11) NOT NULL AUTO_INCREMENT,
+ `damageid` varchar(32) NOT NULL,
+ `entryid` varchar(32) NOT NULL,
+ `stockid` varchar(32) NOT NULL,
+ `quantity` int(11) NOT NULL,
+ `description` text NULL,
+ `date` datetime NOT NULL,
+`userid` varchar(32) NOT NULL,
+ CONSTRAINT entrydamage_pk PRIMARY KEY (`damageid`),
+ UNIQUE KEY `id` (`id`),
+CONSTRAINT `entryrdamage_stock_fk` FOREIGN KEY (`stockid`) REFERENCES `stockinfo` (`stockid`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `user_entrydamage_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `entrydamage_entry_fk` FOREIGN KEY (`entryid`) REFERENCES `entryinfo` (`entryid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE IF NOT EXISTS `issuereturn` (`id` int(11) NOT NULL AUTO_INCREMENT,
+ `issuereturnid` varchar(32) NOT NULL,
+ `issueid` varchar(32) NOT NULL,
+ `quantity` int(11) NOT NULL,
+ `description` text NULL,
+ `date` datetime NOT NULL,
+`userid` varchar(32) NOT NULL,
+ CONSTRAINT issuereturn_pk PRIMARY KEY (`issuereturnid`),
+ UNIQUE KEY `id` (`id`),
+CONSTRAINT `user_issuereturn_fk` FOREIGN KEY (`userid`) REFERENCES `userinfo` (`userid`) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT `issuereturn_issue_fk` FOREIGN KEY (`issueid`) REFERENCES `issueinfo` (`issueid`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;

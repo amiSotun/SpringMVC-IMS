@@ -24,7 +24,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="resources/sweetalert/sweetalert.js"></script>
     <script src="resources/sweetalert/sweetalert.min.js"></script>
-    <script src="resources/JS/custom.js"></script>
+    <script src="resources/JS/customerHandaler.js"></script>
     <script src="resources/JS/customerValidation.js"></script>
     <script src="resources/JS/customerEditValidation.js"></script>
    

@@ -1,4 +1,5 @@
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,24 +21,36 @@
     <!-- iCheck -->
     <link rel="stylesheet" href="resources/CSS/plugins/iCheck/square/blue.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
         <p><b>Login</b>Panel</p>
     </div>
-
-    <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <h4><i class=""> New Message</i></h4>
-
-    </div>
+    
+    <c:choose>
+        <c:when test="${sessionScope.sessionLoginCheck== false}">
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="">Invalid User id or Password </i></h4>
+            </div>         
+        </c:when>
+        
+        <c:when test="${sessionScope.sessionLoginCheck== true}">
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h4><i class="">Authentication!<br> You Must Have Login First. </i></h4>
+            </div>         
+        </c:when>
+        
+        <c:otherwise>
+            <c:remove var="sessionLoginCheck" scope="session"></c:remove>
+        </c:otherwise>
+        
+    </c:choose>
+    <c:remove var="sessionLoginCheck" scope="session"></c:remove>
+    <c:remove var="sessionUserId" scope="session"></c:remove>
+    <c:remove var="sessionUserType" scope="session"></c:remove>
 
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -46,7 +59,7 @@
         <form action="loginCheck" method="post" id="loginForm" name="loginForm">
             <div class="form-group has-feedback">
                 <select class="form-control" id="usertype" name="usertype" required>
-                    <option value="">Select One</option>
+                    <option value="">Select Who you Are?</option>
                     <option value="1">Admin</option>
                     <option value="2">Sales</option>
                     <option value="3">Manager</option>
@@ -67,19 +80,17 @@
                         <label>
                             <a href="#">I forgot my password</a><br>
                         </label>
+                        
                     </div>
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat" id="loginBtn" name="loginBtn">Sign In</button>
+                    <button type="submit" value="submit" class="btn btn-primary btn-block btn-flat" id="loginBtn" name="loginBtn">Sign In</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
         <!-- /.social-auth-links -->
-
-        
-
     </div>
     <!-- /.login-box-body -->
 </div>

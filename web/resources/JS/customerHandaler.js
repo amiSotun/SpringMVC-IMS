@@ -14,7 +14,7 @@ $(function(){
         $.ajax(request).done(function (response){
             if(response){
                 var fullData=$.parseJSON(response);
-                console.log(fullData.address);
+               // console.log(fullData.address);
                 $("#editCustomerid input").val(fullData.customerid);
                 $("#hiddenID").val(fullData.customerid);
                 $("#editName input").val(fullData.name);
@@ -73,7 +73,7 @@ $(function(){
             if(response){
                  $("#customerData").html("");
                 var fullData=$.parseJSON(response);
-               console.log(fullData.length);
+               //console.log(fullData.length);
                  if(fullData.length!==0){
                      var searchInfo='<table class="table table-bordered table-striped">\n\
                                     <tr><th><center>SL NO</center></th><th><center>Name</center></th><th><center>User ID</center></th><th><center>Phone</center></th><th><center>Email</center></th><th><center>Address</center></th><th><center>Action</center></th></tr>\n\ ';

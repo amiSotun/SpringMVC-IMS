@@ -27,7 +27,7 @@
               
             <!--Success/Error Message-->  
               <c:choose>
-                 <c:when test="${queryResult=='1'}">
+                  <c:when test="${sessionScope.sessionSuccessMsg=='1'}">
                      <p></p>
                       <div class="alert alert-success alert-dismissible">
                         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -35,7 +35,7 @@
                     </div>
                  </c:when>
                      
-                 <c:when test="${queryResult=='0'}">
+                 <c:when test="${sessionScope.sessionSuccessMsg=='0'}">
                      <p></p>
                      <div class="alert alert-danger alert-dismissible">
                         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -43,7 +43,7 @@
                     </div>
                  </c:when>
                      
-                     <c:when test="${queryResult=='3'}">
+                     <c:when test="${sessionScope.sessionSuccessMsg=='3'}">
                      <p></p>
                       <div class="alert alert-success alert-dismissible">
                         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -51,7 +51,7 @@
                     </div>
                  </c:when>
                      
-                 <c:when test="${queryResult=='2'}">
+                 <c:when test="${sessionScope.sessionSuccessMsg=='2'}">
                      <p></p>
                      <div class="alert alert-danger alert-dismissible">
                         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -59,7 +59,7 @@
                     </div>
                  </c:when>
                      
-                     <c:when test="${queryResult=='5'}">
+                     <c:when test="${sessionScope.sessionSuccessMsg=='5'}">
                      <p></p>
                       <div class="alert alert-success alert-dismissible">
                         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -67,7 +67,7 @@
                     </div>
                  </c:when>
                      
-                 <c:when test="${queryResult=='4'}">
+                 <c:when test="${sessionScope.sessionSuccessMsg=='4'}">
                      <p></p>
                      <div class="alert alert-danger alert-dismissible">
                         <a class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -75,9 +75,10 @@
                     </div>
                  </c:when>
                  <c:otherwise>
+                     <c:remove var="sessionSuccessMsg" scope="session"></c:remove>
                  </c:otherwise>
              </c:choose>
-                     
+                <c:remove var="sessionSuccessMsg" scope="session"></c:remove>     
             </div>
               
             <div class="box-body" id="customerData">
@@ -227,7 +228,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <center><h4 class="modal-title"><span>Are you want to delete?</span></h4></center>
+                      <center><h4 class="modal-title"><span>Are you sure, want to delete?</span></h4></center>
                     </div>
                       
                           <div class="modal-body" id="editModalBody">

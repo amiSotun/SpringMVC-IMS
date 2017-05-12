@@ -1,42 +1,48 @@
-
-<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>IMS | Log in</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-     
-    
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="resources/CSS/bootstrap.min.css">
-     <!-- Font Awesome -->
-     <link rel="stylesheet" href="resources/CSS/font-awesome.min.css">
-     <!-- Ionicons -->
-     <link rel="stylesheet" href="resources/CSS/ionicons.min.css">
-     <!-- Theme style -->
-     <link rel="stylesheet" href="resources/CSS/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="resources/CSS/plugins/iCheck/square/blue.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, maximum-scale=1">
 
+<title>IMS Login Page</title>
+<link rel="icon" href="resources/Image/favicon.png" type="image/png">
+<!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600' rel='stylesheet' type='text/css'>-->
+
+ <!-- Bootstrap 3.3.6 -->
+ <link rel="stylesheet" href="resources/CSS/bootstrap.min.css">
+<!-- Font Awesome -->
+<link href="resources/CSS/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="resources/CSS/font-awesome.min.css">
+<link href="resources/CSS/responsive.css" rel="stylesheet" type="text/css">
+    <style type="text/css">.pie {
+        behavior: url(resources/Image//PIE.htc);
+    }</style>
+<script type="text/javascript" src="resources/JS/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="resources/JS/bootstrap.min.js"></script>
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-    <!-- Site wrapper -->
-    <div class="wrapper">
-        <button onclick="window.open('loginform')">Get Started</button>
+<body>
+<div style="overflow:hidden;">
+<header class="header" id="header">
+	<div class="container">
+    	<figure class="logo animated fadeInDown delay-07s">
+        <!--	<a href="#"><img src="images/SSS.gif" alt=""></a> -->
+        	<a href="#"><img src="resources/Image/s.gif" alt=""></a>
+        </figure>
+        <h1 class="animated fadeInDown delay-07s">Welcome To Inventory Management System</h1>
+        <ul class="we-create animated fadeInUp delay-1s">
+        	<li>Tracking Inventory levels, Orders, Sales and Deliveries.</li>
+        </ul>
+            <a class="link animated fadeInUp delay-1s" href="loginform">Get Started</a>
     </div>
-
-<!-- /.login-box -->
-
-    <!-- jQuery 2.1.4 -->
-    <script src="resources/JS/jQuery-2.1.4.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="resources/JS/bootstrap.min.js"></script>
-    <!-- iCheck -->
-     <script src="resources/plugins/iCheck/icheck.min.js"></script>
-
+</div>
+</header>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-logo"><a href="#"><img src="" alt=""></a></div>
+        <span class="copyright">Copyright © 2017 | <a href="#">Humayun Kabir Sotun</a> </span>
+    </div>
+</footer>
 
 </body>
 </html>

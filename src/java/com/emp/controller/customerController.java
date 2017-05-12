@@ -10,13 +10,11 @@ import com.emp.model.CustomerInfo;
 import com.google.gson.Gson;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import static java.util.Collections.list;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import static jdk.nashorn.internal.objects.NativeString.trim;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -27,7 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 /**
  *
- * @author RuBaYeT
+ * @author Humayun
  */
 
 
@@ -37,6 +35,7 @@ public class customerController {
     public String str="";
     private final CustomerDao customerDao;
     DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    HttpSession session;
     
     @Autowired 
     public customerController(CustomerDao customerDao){
@@ -47,12 +46,19 @@ public class customerController {
     @RequestMapping(value = "/customers", method = RequestMethod.GET)
     public ModelAndView customers(HttpServletRequest request) {
         str="";
+         ModelAndView model;
+        if(request.getSession(false) != null)
+                session=request.getSession();
         List<CustomerInfo> list=customerDao.getCustometsDetails(); 
-        str=request.getParameter("queryRst");
-        ModelAndView model=new ModelAndView("customers");
-        model.addObject("result","customers");
-        model.addObject("queryResult",str);
-        model.addObject("list",list);
+        if((session.getAttribute("sessionUserId")!=null)&&(session.getAttribute("sessionUserType")!=null)){
+            model=new ModelAndView("customers");
+            model.addObject("result","customers");
+            model.addObject("list",list);
+        }
+        else {
+            session.setAttribute("sessionLoginCheck",true);
+            model=new ModelAndView("redirect:/loginform");
+        }
         return model;
     }
     
@@ -66,6 +72,8 @@ public class customerController {
     
     @RequestMapping(value = "/insertCustomer", method = RequestMethod.POST)
     public ModelAndView insertCustomer(HttpServletRequest request) {
+        if(request.getSession(false) != null)
+                session=request.getSession();
         //List<CustomerInfo> list=customerDao.getCustometsDetails(); 
         int row=customerDao.createCustomerId();
         String customerid=String.valueOf(row);
@@ -77,9 +85,8 @@ public class customerController {
         Date date = new Date();
         CustomerInfo customerInfo = new CustomerInfo(0,customerid, customername, customeraddress, customeremail, customerphone, "kabir", dateFormat.format(date));
         str= String.valueOf(customerDao.addCustomer(customerInfo));
-        ModelAndView model= new ModelAndView("redirect:/customers");
-        model.addObject("queryRst",str);
-         return model;
+        session.setAttribute("sessionSuccessMsg",str);
+        return new ModelAndView("redirect:/customers");
     }
     
     
@@ -95,20 +102,22 @@ public class customerController {
     
     @RequestMapping(value = "/editCustomer", method = RequestMethod.POST)
     public ModelAndView editCustomer(@ModelAttribute CustomerInfo customerInfo,HttpServletRequest request) {
+        if(request.getSession(false) != null)
+                session=request.getSession();
         //String customerId=request.getParameter("customerid");
         str= String.valueOf(customerDao.changeCustomeInfo(customerInfo));
-        ModelAndView model= new ModelAndView("redirect:/customers");
-        model.addObject("queryRst",str);
-        return model;
+        session.setAttribute("sessionSuccessMsg",str);
+        return new ModelAndView("redirect:/customers");
     }
     
     @RequestMapping(value = "/deleteCustomer", method = RequestMethod.POST)
-    public ModelAndView deleteCustomer(HttpServletRequest request){ 
+    public ModelAndView deleteCustomer(HttpServletRequest request){
+        if(request.getSession(false) != null)
+                session=request.getSession();
         String customerId=request.getParameter("customerid");       
         str= String.valueOf(customerDao.deleteCustomerInfo(customerId));
-        ModelAndView model= new ModelAndView("redirect:/customers");
-        model.addObject("queryRst",str);
-        return model;
+        session.setAttribute("sessionSuccessMsg",str);
+        return new ModelAndView("redirect:/customers");
     }
     
     @RequestMapping(value = "/searchCustomer", method = RequestMethod.GET)
