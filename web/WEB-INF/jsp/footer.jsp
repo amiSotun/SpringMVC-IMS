@@ -1,8 +1,9 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+<!--          <b>Version</b> 2.3.0-->
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="http://facebook.com/amiSotun">Humayun Kabir Sotun</a>.</strong> All rights reserved.
       </footer>
 
       
@@ -24,9 +25,24 @@
     <!-- AdminLTE for demo purposes -->
     <script src="resources/sweetalert/sweetalert.js"></script>
     <script src="resources/sweetalert/sweetalert.min.js"></script>
-    <script src="resources/JS/customerHandaler.js"></script>
-    <script src="resources/JS/customerValidation.js"></script>
-    <script src="resources/JS/customerEditValidation.js"></script>
+    <c:choose>
+        <c:when test="${result=='customers'}">
+            <script src="resources/JS/customerHandaler.js"></script>
+            <script src="resources/JS/customerValidation.js"></script>
+            <script src="resources/JS/customerEditValidation.js"></script>
+         </c:when>
+            
+          <c:when test="${result=='suppliers'}">
+            <script src="resources/JS/supplierHandaler.js"></script>
+            <script src="resources/JS/supplierValidation.js"></script>
+            <script src="resources/JS/supplierEditValidation.js"></script>
+         </c:when> 
+            
+            <c:otherwise>
+                
+            </c:otherwise>
+    </c:choose>
+    
    
 
     <script>

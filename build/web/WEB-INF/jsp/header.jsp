@@ -40,7 +40,7 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="#" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>C</b>T</span>
           <!-- logo for regular state and mobile devices -->
@@ -62,15 +62,15 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="resources/Image/user2-160x160.jpg" class="user-image" alt="User Image">
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs">Humayun Kabir</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="resources/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      Humayun Kabir Sotun -  Developer
+                      <small>Member since January. 2017</small>
                     </p>
                   </li>
                   
@@ -81,7 +81,7 @@
                     </div>
                     <div class="loader05"></div>
                     <div class="pull-right">
-                      <a href="#" id="user_logout" name="user_logout" class="btn btn-default btn-flat">Log out</a>
+                      <a href="loginform" id="user_logout" name="user_logout" class="btn btn-default btn-flat">Log out</a>
                     </div>
                   </li>
                 </ul>

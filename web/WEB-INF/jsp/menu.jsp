@@ -13,7 +13,7 @@
               <img src="resources/Image/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>Humayun Kabir</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
@@ -36,7 +36,13 @@
             
             <li <c:if test="${result=='suppliers'}">class="active" </c:if> >
               <a href="suppliers" >
-                <i class="fa fa-tasks"></i> <span>Suppliers</span>
+                <i class="fa fa-shopping-cart"></i> <span>Suppliers</span>
+              </a>
+            </li>
+            
+            <li <c:if test="${result=='brand'}">class="active" </c:if> >
+              <a href="brand" >
+                <i class="fa fa-dashcube"></i> <span>Brand</span>
               </a>
             </li>
 

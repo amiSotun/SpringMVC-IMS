@@ -7,7 +7,7 @@
         <section class="content-header">
           <h1>
             Customer Management
-            <small>add delete and update new customer</small>
+            <small>Insert,Update and Delete Customer Information</small>
           </h1>
         </section>
 
@@ -114,7 +114,7 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Modal Header</h4>
+                      <h4 class="modal-title">Insert New Customer</h4>
                     </div>
                       
                       <form action="insertCustomer" method="post" id="addCustomer" name="addCustomer">

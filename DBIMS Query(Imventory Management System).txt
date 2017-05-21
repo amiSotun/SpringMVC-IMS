@@ -1,3 +1,5 @@
+Database Name: dbims
+
 CREATE TABLE IF NOT EXISTS `userinfo` ( `id` int(11) NOT NULL AUTO_INCREMENT,
 `userid` varchar(32) NOT NULL,
  `type` varchar(20) NOT NULL,

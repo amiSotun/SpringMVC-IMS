@@ -9,11 +9,11 @@ import java.io.Serializable;
 
 /**
  *
- * @author RuBaYeT
+ * @author Humayun Kabir
  */
-public class CustomerInfo implements Serializable{
+public class SupplierInfo implements Serializable{
     private int id;
-    private String customerid;
+    private String supplierid;
     private String name;
     private String address;
     private String email;
@@ -21,12 +21,12 @@ public class CustomerInfo implements Serializable{
     private String userid;
     private String created_at;
 
-    public CustomerInfo() {
+    public SupplierInfo() {
     }
 
-    public CustomerInfo(int id, String customerid, String name, String address, String email, String phone, String userid, String created_at) {
+    public SupplierInfo(int id, String supplierid, String name, String address, String email, String phone, String userid, String created_at) {
         this.id = id;
-        this.customerid = customerid;
+        this.supplierid = supplierid;
         this.name = name;
         this.address = address;
         this.email = email;
@@ -43,12 +43,12 @@ public class CustomerInfo implements Serializable{
         this.id = id;
     }
 
-    public String getCustomerid() {
-        return customerid;
+    public String getSupplierid() {
+        return supplierid;
     }
 
-    public void setCustomerid(String customerid) {
-        this.customerid = customerid;
+    public void setSupplierid(String supplierid) {
+        this.supplierid = supplierid;
     }
 
     public String getName() {
@@ -98,6 +98,5 @@ public class CustomerInfo implements Serializable{
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
     }
-    
     
 }

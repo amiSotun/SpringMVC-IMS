@@ -15,10 +15,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- *
- * @author RuBaYeT
- */
+
 @Repository
 @Transactional
 public class CustomerDaoImp implements CustomerDao{
@@ -26,12 +23,8 @@ public class CustomerDaoImp implements CustomerDao{
 
     @Override
     public void setDB() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/dbims");
-        dataSource.setUsername("root");
-        dataSource.setPassword("123456");          
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        MyConnection myConnection=new MyConnection();
+        this.jdbcTemplate = new JdbcTemplate(myConnection.SetMySQL());
     }
 
     @Override

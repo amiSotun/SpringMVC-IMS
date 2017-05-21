@@ -74,6 +74,7 @@ public class customerController {
     public ModelAndView insertCustomer(HttpServletRequest request) {
         if(request.getSession(false) != null)
                 session=request.getSession();
+        String sessionUserId=(String)session.getAttribute("sessionUserId");
         //List<CustomerInfo> list=customerDao.getCustometsDetails(); 
         int row=customerDao.createCustomerId();
         String customerid=String.valueOf(row);
@@ -83,7 +84,7 @@ public class customerController {
         String customerphone=request.getParameter("phone");
         String customeraddress=request.getParameter("address");
         Date date = new Date();
-        CustomerInfo customerInfo = new CustomerInfo(0,customerid, customername, customeraddress, customeremail, customerphone, "kabir", dateFormat.format(date));
+        CustomerInfo customerInfo = new CustomerInfo(0,customerid, customername, customeraddress, customeremail, customerphone, sessionUserId, dateFormat.format(date));
         str= String.valueOf(customerDao.addCustomer(customerInfo));
         session.setAttribute("sessionSuccessMsg",str);
         return new ModelAndView("redirect:/customers");

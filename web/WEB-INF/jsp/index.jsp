@@ -29,7 +29,7 @@
         <!--	<a href="#"><img src="images/SSS.gif" alt=""></a> -->
         	<a href="#"><img src="resources/Image/s.gif" alt=""></a>
         </figure>
-        <h1 class="animated fadeInDown delay-07s">Welcome To Inventory Management System</h1>
+        <h1 class="animated fadeInDown delay-07s">Welcome To<br>General Store and Inventory Management System</h1>
         <ul class="we-create animated fadeInUp delay-1s">
         	<li>Tracking Inventory levels, Orders, Sales and Deliveries.</li>
         </ul>

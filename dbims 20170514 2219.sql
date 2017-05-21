@@ -99,9 +99,16 @@ CREATE TABLE `customerinfo` (
 
 /*!40000 ALTER TABLE `customerinfo` DISABLE KEYS */;
 INSERT INTO `customerinfo` (`id`,`customerid`,`name`,`address`,`email`,`phone`,`userid`,`created_at`) VALUES 
- (1,'CUS-01','Humayun Kabir','CodeTech IT Solutions, DUET,Gazipur','ehumayun.cse@gmail.com','01737895733','kabir','2017-04-30 14:44:48'),
- (2,'CUS-02','Taimur','sdfghjklkjhgfdsdfghjhgfdsdfghgfdsdfghgfdsdfgf','taimur@gmail.com','12345678765432','kabir','2017-04-30 14:47:23'),
- (3,'CUS-03','Taimur','dfdsafdsfdsfsdfsadfdsafasdfdsafadsf','a.noman_69@yahoo.com','12345678765432','kabir','2017-04-30 15:00:41');
+ (27,'CUS-01','Humayun Kabir Sotun','Gazipur','bdamar@gmail.com','12345678910','kabir','2017-05-01 04:43:11'),
+ (30,'CUS-030','Humayun Kabir','DUET,Gazipur','amisotun@gmail.com','01737895733','kabir','2017-05-03 03:14:53'),
+ (31,'CUS-031','Baker Hossen','Dhaka','baker@gmail.com','01737895733','kabir','2017-05-03 03:16:38'),
+ (32,'CUS-032','Mahbub','Tangail','mahbub@yahoo.com','017952626562','kabir','2017-05-03 03:20:16'),
+ (35,'CUS-035','Baker Hossen','Rajshai, Bangladesh','a.noman_69@yahoo.com','12345678765432','kabir','2017-05-03 16:02:20'),
+ (37,'CUS-037','Baker Hossen','Noakhali','taimur@gmail.com','2652526525265','kabir','2017-05-03 16:06:37'),
+ (44,'CUS-039','Sharmin Sultana','Dhaka,Bangladesh','sharmin@gmail.com','0147895753654','kabir','2017-05-05 02:49:04'),
+ (45,'CUS-045','Rubayet Hossain','Barishal','rubayer@gmail.com','01785485852','kabir','2017-05-12 02:05:31'),
+ (46,'CUS-046','Murad','Rajshai','murad@gmail.com','01737895733','kabir','2017-05-14 16:15:57'),
+ (47,'CUS-047','Munni','Dhaka','munni@gmil.com','01737895733','kabir','2017-05-14 17:57:40');
 /*!40000 ALTER TABLE `customerinfo` ENABLE KEYS */;
 
 
@@ -315,7 +322,7 @@ CREATE TABLE `supplierinfo` (
   `name` varchar(100) NOT NULL,
   `address` varchar(100) NOT NULL,
   `email` varchar(100) default NULL,
-  `contact` varchar(15) NOT NULL,
+  `phone` varchar(15) NOT NULL,
   `userid` varchar(32) NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY  (`supplierId`),
@@ -353,7 +360,8 @@ CREATE TABLE `userinfo` (
 
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
 INSERT INTO `userinfo` (`id`,`userid`,`type`,`password`,`created_at`) VALUES 
- (1,'kabir','1','123456',NULL);
+ (1,'kabir','1','123456',NULL),
+ (2,'rahat','2','rahat',NULL);
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 
 
