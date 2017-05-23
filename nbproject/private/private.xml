@@ -3,18 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/UserDaoImp.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/MyConnection.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/config/MvcConfiguration.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/UserDao.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/loginController.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/menu.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/brand.jsp</file>
             <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/supplierController.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/brandController.java</file>
             <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/customerController.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/model/CustomerInfo.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/model/UserInfo.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/CustomerDao.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/dashboardController.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/CustomerDaoImp.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/customers.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/suppliers.jsp</file>
         </group>
     </open-files>
 </project-private>

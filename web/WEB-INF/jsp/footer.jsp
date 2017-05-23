@@ -38,6 +38,18 @@
             <script src="resources/JS/supplierEditValidation.js"></script>
          </c:when> 
             
+        <c:when test="${result=='brand'}">
+            <script src="resources/JS/brandHandaler.js"></script>
+            <script src="resources/JS/brandValidation.js"></script>
+            <script src="resources/JS/brandEditValidation.js"></script>
+         </c:when>
+            
+        <c:when test="${result=='category'}">
+            <script src="resources/JS/categoryHandaler.js"></script>
+            <script src="resources/JS/categoryValidation.js"></script>
+            <script src="resources/JS/categoryEditValidation.js"></script>
+         </c:when>
+            
             <c:otherwise>
                 
             </c:otherwise>

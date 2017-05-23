@@ -6,8 +6,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Supplier Management
-            <small>Insert,Update and Delete Supplier Information</small>
+            Category Management
+            <small>Insert,Update and Delete Category Information</small>
           </h1>
         </section>
 
@@ -17,10 +17,10 @@
           <!-- Default box -->
           <div class="box">
             <div class="box-header with-border">
-              <h3 class="box-title">Supplier Information</h3>
-              <span class="searchCen"><input type="text" class="input-sm" id="searchSupplier" name="search" placeholder="Search"></span>
+              <h3 class="box-title">Category Information</h3>
+              <span class="searchCen"><input type="text" class="input-sm" id="searchCategory" name="search" placeholder="Search"></span>
               <div class="box-tools pull-right">
-                  <button class="btn btn-box-tool" data-toggle="modal" data-target="#insertSupplierModal" title="Insert New Supplier"><i class="fa fa-user-plus"></i></button>
+                  <button class="btn btn-box-tool" data-toggle="modal" data-target="#insertCategoryModal" title="Insert New Category"><i class="fa fa-user-plus"></i></button>
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                 <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
               </div>
@@ -81,20 +81,18 @@
                 <c:remove var="sessionSuccessMsg" scope="session"></c:remove>     
             </div>
               
-            <div class="box-body" id="supplierData">
+            <div class="box-body" id="catData">
                 
                 <table class="table table-bordered table-striped">  
-                    <tr><th><center>SL NO</center></th><th><center>Name</center></th><th><center>User ID</center></th><th><center>Phone</center></th><th><center>Email</center></th><th><center>Address</center></th><th><center>Action</center></th></tr>  
-                       <c:forEach var="supplier" items="${list}" varStatus="count">   
+                    <tr><th><center>SL NO</center></th><th><center>Category ID</center></th><th><center>Category Name</center></th><th><center>Description</center></th><th><center>Action</center></th></tr>  
+                       <c:forEach var="cat" items="${list}" varStatus="count">   
                        <tr>
                        <td><center>${count.count}</center></td> 
-                       <td>${supplier.name}</td>  
-                       <td>${supplier.supplierid}</td>  
-                       <td>${supplier.phone}</td>  
-                       <td>${supplier.email}</td>
-                       <td>${supplier.address}</td>
-                       <td><center><a class="btn btn-sm btn-default" target="_blank" data-toggle="modal" data-target="#editSupplierPopUp" data-id="${supplier.supplierid}" title="Edit" data-original-title="Edit"><span title="Edit" class="fa fa-edit"></span></a>&nbsp;
-                           <a class="btn btn-sm btn-danger" target="_blank" data-toggle="modal" data-target="#deleteSupplierPopUp" data-id="${supplier.supplierid}" title="Delete" data-original-title="Delete"><span title="Delete" class="fa fa-times"></span></a></center> </td>
+                       <td>${cat.catid}</td>  
+                       <td>${cat.catName}</td>  
+                       <td>${cat.description}</td>
+                       <td><center><a class="btn btn-sm btn-default" target="_blank" data-toggle="modal" data-target="#editCategoryPopUp" data-id="${cat.catid}" title="Edit" data-original-title="Edit"><span title="Edit" class="fa fa-edit"></span></a>&nbsp;
+                           <a class="btn btn-sm btn-danger" target="_blank" data-toggle="modal" data-target="#deleteCategoryPopUp" data-id="${cat.catid}" title="Delete" data-original-title="Delete"><span title="Delete" class="fa fa-times"></span></a></center> </td>
                        </tr>  
                        </c:forEach>  
                   </table> 
@@ -107,53 +105,41 @@
             </div><!-- /.box-footer-->
           </div><!-- /.box -->
           
-          <!-- Insert Supplier Data -->
-          <div class="modal fade" id="insertSupplierModal" role="dialog">
+          <!-- Insert Category Data -->
+          <div class="modal fade" id="insertCategoryModal" role="dialog">
                 <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Insert New Supplier</h4>
+                      <h4 class="modal-title">Insert New Category</h4>
                     </div>
                       
-                      <form action="insertSupplier" method="post" id="addSupplier" name="addSupplier">
+                      <form action="insertCategory" method="post" id="addCategory" name="addCategory">
                           <div class="modal-body" id="insertModalBody">
                         
-                        <!-- Supplier ID -->
-                        <div class="form-group" id="supplierid">
-	                  <label class="control-label" for="supplierid"><i></i> Supplier ID</label>
-                          <input type="text"  class="form-control" name="supplierid" disabled>
+                        <!-- Category ID -->
+                        <div class="form-group" id="catid">
+	                  <label class="control-label" for="catid"><i></i> Category ID</label>
+                          <input type="text"  class="form-control" name="catid" disabled>
 	                </div>
                       
-                        <!-- Name -->
-	                <div class="form-group" id="name">
-	                  <label class="control-label" for="name"><i></i> Name</label>
-                          <input type="text" class="form-control" name="name" placeholder="Enter Name" required> 
+                        <!-- Category Name -->
+	                <div class="form-group" id="catName">
+	                  <label class="control-label" for="name"><i></i>Category Name</label>
+                          <input type="text" class="form-control" name="catName" placeholder="Enter Category Name" required> 
 	                </div>
-                         
-                         <!-- Email -->
-	                <div class="form-group" id="email">
-	                  <label class="control-label" for="email"><i></i> Email</label>
-	                  <input type="text" class="form-control" name="email" placeholder="Enter Email Address">
-	                </div>
-                         
-                         <!-- Phone -->
-	                <div class="form-group" id="phone">
-	                  <label class="control-label" for="phone"><i></i> Phone</label>
-                          <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" required>
-	                </div>
-                         
-                         <!-- Address -->
-	                <div class="form-group" id="address">
-	                  <label class="control-label" for="address"><i></i> Address</label>
-                          <textarea class="form-control" name="address" placeholder="Enter Address" ></textarea>
+
+                         <!-- Description -->
+	                <div class="form-group" id="description">
+	                  <label class="control-label" for="description"><i></i> Description</label>
+                          <textarea class="form-control" name="description" placeholder="Enter Description" ></textarea>
 	                </div>
                         
                      </div>
                           
                      <div class="modal-footer">
-                            <button id="submitSupplier" name="submit" class="btn btn-info">Submit</button>
+                            <button id="submitCategory" name="submit" class="btn btn-info">Submit</button>
                       </div>
                         
                     </form>
@@ -165,53 +151,41 @@
           
           
           
-          <!-- Edit Supplier Data -->
-          <div class="modal fade" id="editSupplierPopUp" role="dialog">
+          <!-- Edit Category Data -->
+          <div class="modal fade" id="editCategoryPopUp" role="dialog">
                 <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      <h4 class="modal-title">Edit Supplier Information</h4>
+                      <h4 class="modal-title">Edit Category Information</h4>
                     </div>
                       
-                      <form action="editSupplier" method="post" id="editSupplier" name="editSupplier">
+                      <form action="editCategory" method="post" id="editCategory" name="editCategory">
                           <div class="modal-body" id="editModalBody">
                         
-                        <!-- Supplier ID -->
-                        <div class="form-group" id="editSupplierid">
-	                  <label class="control-label" for="editSupplierid"><i></i> Supplier ID</label>
-                          <input type="text"  class="form-control" name="editSupplierid" disabled>
+                        <!-- Category ID -->
+                        <div class="form-group" id="editCategoryid">
+	                  <label class="control-label" for="editCategoryid"><i></i> Category ID</label>
+                          <input type="text"  class="form-control" name="editCategoryid" disabled>
 	                </div>
-                        <input type="hidden" id="hiddenID" name="supplierid"/>
-                        <!-- Name -->
-	                <div class="form-group" id="editName">
-	                  <label class="control-label" for="editName"><i></i> Name</label>
-                          <input type="text" class="form-control" name="name" placeholder="Enter Name" required> 
-	                </div>
-                         
-                         <!-- Email -->
-	                <div class="form-group" id="editEmail">
-	                  <label class="control-label" for="editEmail"><i></i> Email</label>
-	                  <input type="text" class="form-control" name="email" placeholder="Enter Email Address">
+                        <input type="hidden" id="hiddenCategoryID" name="catid"/>
+                        <!-- Category Name -->
+	                <div class="form-group" id="editCategoryName">
+	                  <label class="control-label" for="editCategoryName"><i></i> Name</label>
+                          <input type="text" class="form-control" name="catName" placeholder="Enter Category Name" required> 
 	                </div>
                          
-                         <!-- Phone -->
-	                <div class="form-group" id="editPhone">
-	                  <label class="control-label" for="editPhone"><i></i> Phone</label>
-                          <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number" required>
-	                </div>
-                         
-                         <!-- Address -->
-	                <div class="form-group" id="editAddress">
-	                  <label class="control-label" for="editAddress"><i></i> Address</label>
-                          <textarea class="form-control" name="address" placeholder="Enter Address" ></textarea>
+                         <!-- Description -->
+	                <div class="form-group" id="editDescription">
+	                  <label class="control-label" for="editDescription"><i></i> Description</label>
+                          <textarea class="form-control" name="description" placeholder="Enter Description" ></textarea>
 	                </div>
                         
                      </div>
                           
                      <div class="modal-footer">
-                            <button id="editSupplierSubmit" name="editSubmit" class="btn btn-info">Edit</button>
+                            <button id="editCategorySubmit" name="editSubmit" class="btn btn-info">Edit</button>
                       </div>
                         
                     </form>
@@ -221,8 +195,8 @@
                 </div>
             </div>
           
-          <!-- Delete Supplier Data -->
-          <div class="modal fade" id="deleteSupplierPopUp" role="dialog">
+          <!-- Delete Category Data -->
+          <div class="modal fade" id="deleteCategoryPopUp" role="dialog">
                 <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
@@ -234,9 +208,9 @@
                           <div class="modal-body" id="editModalBody">
                        
                               
-                                  <form action="deleteSupplier" method="post" id="deleteSupplier" name="deleteSupplier">
-                                      <input type="hidden" id="hiddenSupplierID" name="supplierid"/>
-                                     <center> <button id="deleteSupplierBtn" name="deleteSupplierBtn" class="btn btn-danger">Delete</button>
+                                  <form action="deleteCategory" method="post" id="deleteCategory" name="deleteCategory">
+                                      <input type="hidden" id="hiddenCatID" name="catid"/>
+                                     <center> <button id="deleteCategoryBtn" name="deleteCategoryBtn" class="btn btn-danger">Delete</button>
                                   </form>
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                               </center>

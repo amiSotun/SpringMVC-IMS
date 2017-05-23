@@ -45,6 +45,12 @@
                 <i class="fa fa-dashcube"></i> <span>Brand</span>
               </a>
             </li>
+            
+            <li <c:if test="${result=='category'}">class="active" </c:if> >
+              <a href="category" >
+                <i class="fa fa-tasks"></i> <span>Category</span>
+              </a>
+            </li>
 
           </ul>
         </section>
