@@ -3,13 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/SupplierDaoImp.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/productController.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/modelController.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/ModelDaoImp.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/resources/JS/supplierValidation.js</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/model.jsp</file>
             <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/menu.jsp</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/brand.jsp</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/supplierController.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/footer.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/BrandDaoImp.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/dashboard.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/CustomerDaoImp.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/model/ModelInfo.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/UserDaoImp.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/loginform.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/model/CategoryInfo.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/resources/JS/jquery.slimscroll.min.js</file>
             <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/brandController.java</file>
             <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/customerController.java</file>
-            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/customers.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/dashboardController.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/ModelDao.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/resources/JS/modelValidation.js</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/resources/JS/customerHandaler.js</file>
             <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/suppliers.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/WEB-INF/jsp/product.jsp</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/resources/JS/supplierHandaler.js</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/controller/supplierController.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/model/CustomerInfo.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/resources/JS/productValidation.js</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/CustomerDao.java</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/web/resources/JS/modelHandaler.js</file>
+            <file>file:/C:/Users/Humayun%20Kabir/Documents/NetBeansProjects/InventoryManagement/src/java/com/emp/dao/SupplierDao.java</file>
         </group>
     </open-files>
 </project-private>

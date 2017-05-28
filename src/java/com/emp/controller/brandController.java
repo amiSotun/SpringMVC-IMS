@@ -76,7 +76,7 @@ public class brandController {
         //List<BrandInfo> list=brandDao.getBrandDetails(); 
         int row=brandDao.createBrandId();
         String brandid=String.valueOf(row);
-        brandid="CUS-0"+brandid;
+        brandid="BND-0"+brandid;
         String brandName=request.getParameter("brandName");
         String description=request.getParameter("description");
         Date date = new Date();

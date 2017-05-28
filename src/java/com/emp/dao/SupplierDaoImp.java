@@ -11,7 +11,6 @@ import java.util.List;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -83,8 +82,6 @@ public class SupplierDaoImp implements SupplierDao{
     public int changeSupplierInfo(SupplierInfo supplierInfo){
         String sql = "update supplierinfo set name=?, address=?, email=?, phone=? where supplierid=?";
         int i= jdbcTemplate.update(sql,supplierInfo.getName(),supplierInfo.getAddress(),supplierInfo.getEmail(),supplierInfo.getPhone(),supplierInfo.getSupplierid());
-        //String sql = "update supplierinfo set name=? where supplierid=?";
-        //int i= jdbcTemplate.update(sql,supplierInfo.getName(),"CUS-01");
         return (i+2);
     }
     

@@ -51,6 +51,18 @@
                 <i class="fa fa-tasks"></i> <span>Category</span>
               </a>
             </li>
+            
+            <li <c:if test="${result=='model'}">class="active" </c:if> >
+              <a href="model" >
+                <i class="fa fa-shopping-cart"></i> <span>Model Details</span>
+              </a>
+            </li>
+            
+            <li <c:if test="${result=='product'}">class="active" </c:if> >
+              <a href="product" >
+                <i class="fa fa-shopping-cart"></i> <span>Product Details</span>
+              </a>
+            </li>
 
           </ul>
         </section>

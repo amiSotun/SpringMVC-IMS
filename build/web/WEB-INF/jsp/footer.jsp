@@ -15,7 +15,7 @@
     <!-- Bootstrap 3.3.5 -->
     <script src="resources/JS/bootstrap.min.js"></script>
     <!-- bootstrap datepicker -->
-    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="resources/plugins/datepicker/bootstrap-datepicker.js"></script>
     <!-- SlimScroll -->
     <script src="resources/JS/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
@@ -50,6 +50,18 @@
             <script src="resources/JS/categoryEditValidation.js"></script>
          </c:when>
             
+         <c:when test="${result=='model'}">
+            <script src="resources/JS/modelHandaler.js"></script>
+            <script src="resources/JS/modelValidation.js"></script>
+<!--            <script src="resources/JS/categoryEditValidation.js"></script>-->
+         </c:when>
+
+        <c:when test="${result=='product'}">
+            <script src="resources/JS/productHandaler.js"></script>
+            <script src="resources/JS/productValidation.js"></script>
+            <!--<script src="resources/JS/categoryEditValidation.js"></script>-->
+         </c:when>
+            
             <c:otherwise>
                 
             </c:otherwise>
@@ -59,7 +71,7 @@
 
     <script>
         //Date picker
-        $('#dob input').datepicker({
+        $('#invoiceData input').datepicker({
             autoclose: true,
             format: 'yyyy-mm-dd'
         });
